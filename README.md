@@ -157,7 +157,7 @@ unit_price    → abs(
       toFloat(iifNull(unit_price,'0.0'))
   )
   ```
-##Step 3 — Derived Column (AddSortKey)
+## Step 3 — Derived Column (AddSortKey)
 
 Creates helper column:
 
@@ -190,14 +190,14 @@ iif(isDate(order_date,'yyyy/MM/dd'),
 `
 So they appear last after sorting.
 
-##Step 4 — Sort (SortByDate)
+## Step 4 — Sort (SortByDate)
 
 Sorts:
 | Column      | Order      |
 | ----------- | ---------- |
 | `sort_date` | Descending |
 
-##Step 5 — Select (DropSortKey)
+## Step 5 — Select (DropSortKey)
 
 Removes:
 `
@@ -207,7 +207,7 @@ Final output keeps:
 `
 8 original columns
 `
-Step 6 — Sink (SinkCSV)
+## Step 6 — Sink (SinkCSV)
 
 Writes cleaned dataset to:
 `
@@ -223,7 +223,7 @@ sales_cleaned.csv
 │ source1 │ → │ FillAndFix │ → │ AddSortKey │ → │ SortByDate │ → │ DropSortKey │ → │ SinkCSV │
 └─────────┘   └────────────┘   └────────────┘   └────────────┘   └─────────────┘   └─────────┘
 ```
-#🧹 Null Handling Strategy
+# 🧹 Null Handling Strategy
 
 No rows were removed.
 All 221 rows were preserved.
@@ -238,7 +238,7 @@ All 221 rows were preserved.
 | `unit_price`   | `0.0`             |
 | `Total Amount` | recalculated      |
 
-#⚠️ Common Pitfalls & Fixes
+# ⚠️ Common Pitfalls & Fixes
 | Error                    | Cause                         | Fix                                 |
 | ------------------------ | ----------------------------- | ----------------------------------- |
 | Expression type mismatch | Mixed numeric/string defaults | Use `'0'` then cast                 |
@@ -246,7 +246,7 @@ All 221 rows were preserved.
 | Sorting incorrect        | String-based sorting          | Add `sort_date` column              |
 | Negative totals          | Wrong calculation order       | Apply `abs()` before multiplication |
 
-#📦 Output
+# 📦 Output
 
 | File                | Description           |
 | ------------------- | --------------------- |
@@ -284,7 +284,7 @@ All 221 rows were preserved.
 
 ![Output](screenshots/05-final-output.png)
 ---
-#🛠 Tech Stack
+# 🛠 Tech Stack
 | Tool                         | Purpose              |
 | ---------------------------- | -------------------- |
 | Azure Data Factory           | Cloud ETL Pipeline   |
@@ -292,7 +292,7 @@ All 221 rows were preserved.
 | Mapping Data Flow            | Data Cleaning Engine |
 | CSV                          | Raw Dataset Format   |
 ---
-#📈 Key Achievements
+# 📈 Key Achievements
 
 ✔ Cleaned 221 records
 
@@ -307,17 +307,17 @@ All 221 rows were preserved.
 ✔ Built reusable ETL pipeline
 
 ---
-#👤 Author
+# 👤 Author
 
 Ahmed Samir
 Junior Data Engineer — DEPI
 B.Sc. Artificial Intelligence & Data Science — EJUST (2024–2028)
 
-#🐙 GitHub:
+# 🐙 GitHub:
 https://github.com/SAMIRJR002
 
-#💼 LinkedIn:
+# 💼 LinkedIn:
 https://linkedin.com/in/ahmedsamir02
 
-#📧 Email:
+# 📧 Email:
 ahmed.320240180@ejust.edu.eg
