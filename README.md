@@ -105,6 +105,7 @@ Azure Data Lake Storage Gen2
 
 ---
 
+
 ## Step 2 — Derived Column (`FillAndFix`)
 
 Handles:
@@ -117,7 +118,7 @@ Handles:
 
 ### Expressions:
 
-text
+```
 order_id      → iifNull(order_id, '0')
 
 customer_id   → iifNull(customer_id, 'unknown')
@@ -155,17 +156,19 @@ unit_price    → abs(
   abs(
       toFloat(iifNull(unit_price,'0.0'))
   )
-
-
-
+  ```
 Step 3 — Derived Column (AddSortKey)
 
 Creates helper column:
 
 sort_date
+
 Used to correctly sort mixed-format dates.
 
-sort_date → iif(order_date == 'unknown',
+```
+sort_date →
+
+iif(order_date == 'unknown',
     toDate('1900-01-01','yyyy-MM-dd'),
 
 iif(isDate(order_date,'yyyy-MM-dd'),
@@ -178,24 +181,32 @@ iif(isDate(order_date,'yyyy/MM/dd'),
     toDate(order_date,'yyyy/MM-dd'),
 
     toDate(order_date,'MMMM d yyyy')
-))))
+)))
+```
 
 ✔ Rows with null dates receive:
+`
 1900-01-01
+`
 So they appear last after sorting.
 
-
 Step 4 — Sort (SortByDate)
+
 Sorts:
+
 Column	Order
 sort_date	Descending
+
 Most recent records appear first.
 
 Step 5 — Select (DropSortKey)
+
 Removes:
+
 sort_date
 
 Final output keeps:
+
 8 original columns
 
 Step 6 — Sink (SinkCSV)
