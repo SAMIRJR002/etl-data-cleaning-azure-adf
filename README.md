@@ -117,7 +117,7 @@ Handles:
 
 ### Expressions:
 
-```text
+text
 order_id      → iifNull(order_id, '0')
 
 customer_id   → iifNull(customer_id, 'unknown')
@@ -155,17 +155,17 @@ unit_price    → abs(
   abs(
       toFloat(iifNull(unit_price,'0.0'))
   )
+
+
+
 Step 3 — Derived Column (AddSortKey)
 
 Creates helper column:
 
 sort_date
-
 Used to correctly sort mixed-format dates.
 
-sort_date →
-
-iif(order_date == 'unknown',
+sort_date → iif(order_date == 'unknown',
     toDate('1900-01-01','yyyy-MM-dd'),
 
 iif(isDate(order_date,'yyyy-MM-dd'),
@@ -181,38 +181,29 @@ iif(isDate(order_date,'yyyy/MM/dd'),
 ))))
 
 ✔ Rows with null dates receive:
-
 1900-01-01
-
 So they appear last after sorting.
 
+
 Step 4 — Sort (SortByDate)
-
 Sorts:
-
 Column	Order
 sort_date	Descending
-
 Most recent records appear first.
 
 Step 5 — Select (DropSortKey)
-
 Removes:
-
 sort_date
 
 Final output keeps:
-
 8 original columns
+
 Step 6 — Sink (SinkCSV)
-
 Writes cleaned dataset to:
-
 Azure Data Lake Storage Gen2
 (output container)
 
 Output file:
-
 sales_cleaned.csv
 🗺️ Full Data Flow Canvas
 ┌─────────┐   ┌────────────┐   ┌────────────┐   ┌────────────┐   ┌─────────────┐   ┌─────────┐
@@ -221,9 +212,7 @@ sales_cleaned.csv
 🧹 Null Handling Strategy
 
 No rows were removed.
-
 All 221 rows were preserved.
-
 Column	Replacement Value
 order_id	'0'
 order_date	'unknown'
@@ -247,38 +236,25 @@ File	Description
 sales_cleaned.csv	Final cleaned dataset
 Rows	221 rows
 Columns	8 columns
-🏗 Architecture (Add Screenshot Here)
 
-After creating architecture diagram:
-
-architecture/architecture-diagram.png
-
-Add:
-
-![Architecture](architecture/architecture-diagram.png)
-📸 Pipeline Screenshots (Add Your Images)
-
-Create:
-
-screenshots/
 
 Add:
 
 ## Pipeline Overview
 
-![Pipeline](screenshots/01-pipeline.png)
+![Pipeline](<img width="3839" height="1911" alt="Pipeline" src="https://github.com/user-attachments/assets/6bd48bc5-135a-40e3-9dcb-a5d0fea9f0d3" />
+)
 
 ## Data Flow Design
 
-![DataFlow](screenshots/02-dataflow.png)
+![DataFlow](<img width="3836" height="1950" alt="Dataflow" src="https://github.com/user-attachments/assets/7fb90bd8-3b6b-4dfd-aaf0-944a4f90386d" />
+)
 
-## Cleaning Transformations
-
-![Cleaning](screenshots/03-cleaning.png)
 
 ## Final Output
 
-![Output](screenshots/04-output.png)
+![Output](<img width="3839" height="1745" alt="image" src="https://github.com/user-attachments/assets/dd14abf1-279f-42c5-9b6d-b3de11a7afd5" />
+)
 🛠 Tech Stack
 Tool	Purpose
 Azure Data Factory	Cloud ETL Pipeline
