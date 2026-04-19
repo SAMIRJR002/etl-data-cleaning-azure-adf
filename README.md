@@ -291,16 +291,21 @@ All 221 rows were preserved.
 | Azure Data Lake Storage Gen2 | Storage Layer        |
 | Mapping Data Flow            | Data Cleaning Engine |
 | CSV                          | Raw Dataset Format   |
-
+---
 📈 Key Achievements
 
 ✔ Cleaned 221 records
-✔ Standardized multiple date formats
-✔ Eliminated negative values
-✔ Recalculated inconsistent totals
-✔ Preserved full dataset integrity
-✔ Built reusable ETL pipeline
 
+✔ Standardized multiple date formats
+
+✔ Eliminated negative values
+
+✔ Recalculated inconsistent totals
+
+✔ Preserved full dataset integrity
+
+✔ Built reusable ETL pipeline
+---
 👤 Author
 
 Ahmed Samir
