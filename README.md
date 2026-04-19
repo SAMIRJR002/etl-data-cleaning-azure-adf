@@ -193,12 +193,10 @@ So they appear last after sorting.
 Step 4 — Sort (SortByDate)
 
 Sorts:
----
-Column	       Order
-sort_date   	Descending
-----
-Most recent records appear first.
-----
+| Column      | Order      |
+| ----------- | ---------- |
+| `sort_date` | Descending |
+
 Step 5 — Select (DropSortKey)
 
 Removes:
