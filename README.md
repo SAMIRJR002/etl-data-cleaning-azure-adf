@@ -6,7 +6,13 @@
 
 An end-to-end **ETL Data Cleaning Pipeline** built using **Azure Data Factory (ADF)**.  
 This project reads a raw `sales.csv` dataset, applies advanced data cleaning transformations using **Mapping Data Flow**, and saves the cleaned output into **Azure Data Lake Storage Gen2**.
+---
+# ⚡ Quick Summary
 
+✔ Built automated ETL pipeline using Azure Data Factory  
+✔ Cleaned 221 records with multiple data quality issues  
+✔ Standardized date formats and fixed invalid values  
+✔ Generated reliable cleaned dataset ready for analytics
 ---
 
 # 📋 Project Overview
@@ -253,7 +259,23 @@ All 221 rows were preserved.
 | `sales_cleaned.csv` | Final cleaned dataset |
 | Rows                | **221 rows**          |
 | Columns             | **8 columns**         |
+---
+# 📊 Data Cleaning Results
 
+Before Cleaning:
+
+❌ 34 Null values  
+❌ 17 Negative values  
+❌ 4 Different date formats  
+❌ Incorrect totals detected  
+
+After Cleaning:
+
+✅ 0 Null values  
+✅ 0 Negative values  
+✅ 1 Standard date format  
+✅ All totals corrected
+---
 # 📸 Pipeline Screenshots
 
 ## Pipeline Overview
@@ -307,6 +329,18 @@ All 221 rows were preserved.
 ✔ Built reusable ETL pipeline
 
 ---
+# 💰 Business Impact
+
+This pipeline reduces manual data cleaning effort and ensures reliable datasets for analytics.
+
+Estimated benefits:
+
+✔ Reduces manual cleaning time by up to 80%  
+✔ Improves data accuracy  
+✔ Ensures consistent reporting  
+✔ Enables faster business decision-making
+---
+
 # 👤 Author
 
 Ahmed Samir
